@@ -12,6 +12,7 @@ app.use(express.json());
 
 app.use('/:email/:msg', (req, res) => {
     const email = req.params.email;
+    const msg = req.params.msg;
     // Node Mailer
     let transporter = nodemailer.createTransport({
         service: 'gmail',
