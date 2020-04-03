@@ -10,21 +10,22 @@ app.use(express.json());
 
 
 
-app.use('/', (req, res) => {
+app.use('/:email/:msg', (req, res) => {
+    const email = req.params.email;
     // Node Mailer
     let transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: 'shivanshu981@gmail.com',
-            pass: 'ironman1234'
+            user: 'aictecovidhelp@gmail.com',
+            pass: 'Ironman1.'
         }
     });
 
     let mailOption = {
         from: 'shivanshu981@gmail.com',
-        to: 'akhilnegigeu@gmail.com',
+        to: email,
         subject: 'Testing and Testing',
-        text: 'IT works'
+        text: msg
     };
 
     transporter.sendMail(mailOption, (err, data) => {
