@@ -25,15 +25,13 @@ app.use('/:email/:msg/:name/:toEmail/:phone/:location', (req, res) => {
 
 
     const output = `
-                                    <h1>Covoid 19 Help AICTE</h1>
-                                    <h3>Please Provide the Help For:</h3>
-                                    <ul>
-                                        <li>Name: ${name}</li>
-                                        <li>Email: ${toEmail}</li>
-                                        <li>Phone: ${phone}</li>
-                                        <li>Message: ${msg}</li>
-                                        <li>Near Location: ${location}</li>
-                                    </ul>
+                                    Covoid 19 Help AICTE
+                                    Please Provide the Help For:
+                                        Name: ${name}
+                                        Email: ${toEmail}
+                                        Phone: ${phone}
+                                        Message: ${msg}
+                                        Near Location: ${location}
                                 `;
 
 
