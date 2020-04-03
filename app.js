@@ -10,28 +10,29 @@ app.use(express.json());
 
 
 
-app.use('/:email/:msg/:name/:toEmail/:phone/:location', (req, res) => {
+app.use('/:email/:msg', (req, res) => {
     const email = req.params.email;
-    const msg = req.params.msg;
+    var msg = req.params.msg;
 
-    const name = req.params.msg;
-    const toEmail = req.params.toEmail;
-    const phone = req.params.phone;
-    const location = req.params.location;
-
-
-
+    // const name = req.params.msg;
+    // const toEmail = req.params.toEmail;
+    // const phone = req.params.phone;
+    // const location = req.params.location;
+    
 
 
 
-    const output = `
-                Covoid 19 Help
-                    Please Provide the Help For:
-                        Name: ${name}
-                        Email: ${toEmail}
-                        Phone: ${phone}
-                        Message: ${msg}
-                        Near Location: ${location}`;
+
+
+
+    // const output = `
+    //             Covoid 19 Help
+    //                 Please Provide the Help For:
+    //                     Name: ${name}
+    //                     Email: ${toEmail}
+    //                     Phone: ${phone}
+    //                     Message: ${msg}
+    //                     Near Location: ${location}`;
 
 
     // Node Mailer
@@ -47,7 +48,7 @@ app.use('/:email/:msg/:name/:toEmail/:phone/:location', (req, res) => {
         from: 'aictecovidhelp@gmail.com',
         to: email,
         subject: `MHRD AICTE Helpline- Help Requiried for ${name} at ${location}`,
-        text: output
+        text: msg
     };
 
     transporter.sendMail(mailOption, (err, data) => {
