@@ -10,9 +10,33 @@ app.use(express.json());
 
 
 
-app.use('/:email/:msg', (req, res) => {
+app.use('/:email/:msg/:name/:toEmail/:phone/:location', (req, res) => {
     const email = req.params.email;
     const msg = req.params.msg;
+
+    const name = req.params.msg;
+    const toEmail = req.params.toEmail;
+    const phone = req.params.phone;
+    const location = req.params.location;
+
+
+
+
+
+
+    const output = `
+                                    <h1>Covoid 19 Help AICTE</h1>
+                                    <h3>Please Provide the Help For:</h3>
+                                    <ul>
+                                        <li>Name: ${name}</li>
+                                        <li>Email: ${toEmail}</li>
+                                        <li>Phone: ${phone}</li>
+                                        <li>Message: ${msg}</li>
+                                        <li>Near Location: ${location}</li>
+                                    </ul>
+                                `;
+
+
     // Node Mailer
     let transporter = nodemailer.createTransport({
         service: 'gmail',
@@ -26,7 +50,7 @@ app.use('/:email/:msg', (req, res) => {
         from: 'aictecovidhelp@gmail.com',
         to: email,
         subject: 'Testing and Testing',
-        text: msg
+        text: output
     };
 
     transporter.sendMail(mailOption, (err, data) => {
