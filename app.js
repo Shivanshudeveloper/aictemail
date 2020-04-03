@@ -25,14 +25,13 @@ app.use('/:email/:msg/:name/:toEmail/:phone/:location', (req, res) => {
 
 
     const output = `
-                                    Covoid 19 Help AICTE
-                                    Please Provide the Help For:
-                                        Name: ${name}
-                                        Email: ${toEmail}
-                                        Phone: ${phone}
-                                        Message: ${msg}
-                                        Near Location: ${location}
-                                `;
+                Covoid 19 Help
+                    Please Provide the Help For:
+                        Name: ${name}
+                        Email: ${toEmail}
+                        Phone: ${phone}
+                        Message: ${msg}
+                        Near Location: ${location}`;
 
 
     // Node Mailer
