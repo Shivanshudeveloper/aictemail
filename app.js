@@ -28,9 +28,10 @@ app.use('/', (req, res) => {
     };
 
     transporter.sendMail(mailOption, (err, data) => {
-        if (err) throw err;
+        if (err) throw res.send(err);
 
         console.log('Email Sent!');
+        res.send('Done');
     })
 });
 
