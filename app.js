@@ -47,7 +47,7 @@ app.use('/:email/:msg', (req, res) => {
     let mailOption = {
         from: 'aictecovidhelp@gmail.com',
         to: email,
-        subject: `MHRD AICTE Helpline- Help Requiried for ${name} at ${location}`,
+        subject: `MHRD AICTE Helpline- Help Requiried for ${email}`,
         text: msg
     };
 
