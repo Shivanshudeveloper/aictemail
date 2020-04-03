@@ -2,15 +2,18 @@
 const express = require('express');
 // Nodemailer
 const nodemailer = require('nodemailer');
+const router = express.Router();
 
 // Initializing app
 const app = express();
 
 app.use(express.json());
 
+app.get("/", (req, res) => {
+    res.send("S");
+});
 
-
-app.use('/:email/:msg', (req, res) => {
+app.get('/:email/:msg', (req, res) => {
     const email = req.params.email;
     var msg = req.params.msg;
 
@@ -18,12 +21,6 @@ app.use('/:email/:msg', (req, res) => {
     // const toEmail = req.params.toEmail;
     // const phone = req.params.phone;
     // const location = req.params.location;
-    
-
-
-
-
-
 
     // const output = `
     //             Covoid 19 Help
