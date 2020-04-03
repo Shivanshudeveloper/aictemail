@@ -41,7 +41,7 @@ app.use('/', (req, res) => {
     }).then(() => {
         res.send(`SEND`);
     })
-    .catch(err => console.log(err));
+    .catch(err => res.send(err));
 });
 
 // Getting PORT set
