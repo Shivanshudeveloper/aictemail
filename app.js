@@ -23,7 +23,7 @@ app.use('/:email/:msg', (req, res) => {
     });
 
     let mailOption = {
-        from: 'shivanshu981@gmail.com',
+        from: 'aictecovidhelp@gmail.com',
         to: email,
         subject: 'Testing and Testing',
         text: msg
@@ -33,7 +33,7 @@ app.use('/:email/:msg', (req, res) => {
         if (err) throw res.send(err);
 
         console.log('Email Sent!');
-        res.send('Done');
+        res.redirect('https://helpline.aicte-india.org/helpme.php');
     })
 });
 
