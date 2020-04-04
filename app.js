@@ -47,7 +47,7 @@ app.get('/:email/:msg/:phone/:location', (req, res) => {
         from: 'aictecovidhelp@gmail.com',
         to: email,
         subject: `MHRD AICTE Helpline- Help Requiried for ${email} at ${location}`,
-        text: `${msg}, Phone Number: ${phone}`
+        text: `${msg}, Phone Number: ${phone}, Email: ${email}`
     };
 
     transporter.sendMail(mailOption, (err, data) => {
