@@ -13,13 +13,14 @@ app.get("/", (req, res) => {
     res.send("S");
 });
 
-app.get('/:email/:msg/:phone/:location/:fullName/:emailOfPerson', (req, res) => {
+app.get('/:email/:msg/:phone/:location/:fullName/:emailOfPerson/:type', (req, res) => {
     const email = req.params.email;
     var msg = req.params.msg;
     var phone = req.params.phone;
     var location = req.params.location;
     var fullName = req.params.fullName;
     var emailOfPerson = req.params.emailOfPerson;
+    var type = req.params.type;
 
     // const name = req.params.msg;
     // const toEmail = req.params.toEmail;
@@ -49,7 +50,7 @@ app.get('/:email/:msg/:phone/:location/:fullName/:emailOfPerson', (req, res) => 
         from: 'aictecovidhelp@gmail.com',
         to: email,
         subject: `MHRD AICTE Helpline- Help Requiried for ${fullName} at ${location}`,
-        text: `${msg}, Phone Number: ${phone}, Email: ${emailOfPerson}`
+        text: `Type: ${type},Message: ${msg}, Phone Number: ${phone}, Email: ${emailOfPerson}`
     };
 
     transporter.sendMail(mailOption, (err, data) => {
