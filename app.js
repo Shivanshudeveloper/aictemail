@@ -13,7 +13,7 @@ app.get("/", (req, res) => {
     res.send("S");
 });
 
-app.get('/:email/:msg/:phone/:location/:fullName/:emailOfPerson/:type', (req, res) => {
+app.get('/:email/:msg/:phone/:location/:fullName/:emailOfPerson/:type/:near', (req, res) => {
     const email = req.params.email;
     var msg = req.params.msg;
     var phone = req.params.phone;
@@ -21,6 +21,7 @@ app.get('/:email/:msg/:phone/:location/:fullName/:emailOfPerson/:type', (req, re
     var fullName = req.params.fullName;
     var emailOfPerson = req.params.emailOfPerson;
     var type = req.params.type;
+    var near = req.params.near;
 
     // const name = req.params.msg;
     // const toEmail = req.params.toEmail;
@@ -50,7 +51,7 @@ app.get('/:email/:msg/:phone/:location/:fullName/:emailOfPerson/:type', (req, re
         from: 'aictecovidhelp@gmail.com',
         to: email,
         subject: `MHRD AICTE Helpline- Help Requiried for ${fullName} at ${location}`,
-        text: `Type: ${type},Message: ${msg}, Phone Number: ${phone}, Email: ${emailOfPerson}`
+        text: `Full Name: ${fullName}, Type: ${type},Message: ${msg}, Phone Number: ${phone}, Email: ${emailOfPerson}, Near Locality: ${near}`
     };
 
     transporter.sendMail(mailOption, (err, data) => {
