@@ -62,6 +62,31 @@ app.get('/:email/:msg/:phone/:location/:fullName/:emailOfPerson/:type/:near', (r
     })
 });
 
+
+app.get('/aicte/:email', (req, res) => {
+    const email = req.params.email;
+    let transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'aicteupdate@gmail.com',
+            pass: 'aicte@1234'
+        }
+    });
+    let mailOption = {
+        from: 'aicteupdate@gmail.com',
+        to: email,
+        subject: `Your Account Has Been Successfully Created`,
+        text: `Account for ${email} has been successfully created.`
+    };
+    transporter.sendMail(mailOption, (err, data) => {
+        if (err) throw res.send(err);
+        console.log('Email Sent!');
+        res.redirect('http://free.aicte-india.org/AICTE/login.php?register=success');
+    })
+});
+
+
+
 // Getting PORT set
 const PORT = process.env.PORT || 5000;
 
