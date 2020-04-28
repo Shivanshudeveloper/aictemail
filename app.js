@@ -32,9 +32,34 @@ app.get('/iks/:email', (req, res) => {
     transporter.sendMail(mailOption, (err, data) => {
         if (err) throw res.send(err);
         console.log('Email Sent!');
-        res.redirect('http://free.aicte-india.org/AICTE/login.php?register=success');
+        res.redirect('http://free.aicte-india.org/its/home.php?submit=success');
     })
 });
+
+
+app.get('/mobileiks/:email', (req, res) => {
+    const email = req.params.email;
+    let transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'aicteupdate@gmail.com',
+            pass: 'aicte@1234'
+        }
+    });
+    let mailOption = {
+        from: 'aicteupdate@gmail.com',
+        to: email,
+        subject: `Your Form Has Been Successfully Submitted`,
+        text: `You have successfully submitted the form for Indian Traditional Knowledge System`
+    };
+    transporter.sendMail(mailOption, (err, data) => {
+        if (err) throw res.send(err);
+        console.log('Email Sent!');
+        res.redirect('http://free.aicte-india.org/its/mobile.php?submit=success');
+    })
+});
+
+
 
 app.get('/:email/:msg/:phone/:location/:fullName/:emailOfPerson/:type/:near', (req, res) => {
     const email = req.params.email;
