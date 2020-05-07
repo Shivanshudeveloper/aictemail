@@ -134,6 +134,52 @@ app.get('/aicte/:email', (req, res) => {
 });
 
 
+app.get('/translation/:email', (req, res) => {
+    const email = req.params.email;
+    let transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'aicteupdate@gmail.com',
+            pass: 'aicte@1234'
+        }
+    });
+    let mailOption = {
+        from: 'aicteupdate@gmail.com',
+        to: email,
+        subject: `Congratulations Account Has Been Successfully Created`,
+        text: `Account for ${email} has been successfully Registered.`
+    };
+    transporter.sendMail(mailOption, (err, data) => {
+        if (err) throw res.send(err);
+        console.log('Email Sent!');
+        res.redirect('http://free.aicte-india.org/translation/register.php?register=success');
+    })
+});
+
+
+app.get('/mtranslation/:email', (req, res) => {
+    const email = req.params.email;
+    let transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'aicteupdate@gmail.com',
+            pass: 'aicte@1234'
+        }
+    });
+    let mailOption = {
+        from: 'aicteupdate@gmail.com',
+        to: email,
+        subject: `Congratulations Account Has Been Successfully Created`,
+        text: `Account for ${email} has been successfully Registered.`
+    };
+    transporter.sendMail(mailOption, (err, data) => {
+        if (err) throw res.send(err);
+        console.log('Email Sent!');
+        res.redirect('http://free.aicte-india.org/translation/mregister.php?register=success');
+    })
+});
+
+
 
 // Getting PORT set
 const PORT = process.env.PORT || 5000;
