@@ -150,7 +150,11 @@ app.get('/translation/:email/:course/:language', (req, res) => {
         from: 'aicteupdate@gmail.com',
         to: email,
         subject: `Congratulations Account Has Been Successfully Created`,
-        text: `Account for ${email} has been successfully Registered. <br /> Link for FAQ:= http://free.aicte-india.org/translation/FAQ.docx`
+        html: `Account for ${email} has been successfully Registered. 
+        <br />
+        Willingness from malkhede@gmail.com for the course ${course} for translating in ${language} language has been successfully registered.
+        More information can be seen in the <a href="http://free.aicte-india.org/translation/FAQs.htm">FAQs</a>. Click here to see more information
+        `
     };
     transporter.sendMail(mailOption, (err, data) => {
         if (err) throw res.send(err);
@@ -177,7 +181,11 @@ app.get('/mtranslation/:email/:course/:language', (req, res) => {
         from: 'aicteupdate@gmail.com',
         to: email,
         subject: `Congratulations Account Has Been Successfully Created`,
-        text: `Account for ${email} has been successfully Registered. <br /> Link for FAQ:= http://free.aicte-india.org/translation/FAQ.docx`
+        html: `Account for ${email} has been successfully Registered. 
+        <br />
+        Willingness from malkhede@gmail.com for the course ${course} for translating in ${language} language has been successfully registered.
+        More information can be seen in the <a href="http://free.aicte-india.org/translation/FAQs.htm">FAQs</a>. Click here to see more information
+        `
     };
     transporter.sendMail(mailOption, (err, data) => {
         if (err) throw res.send(err);
