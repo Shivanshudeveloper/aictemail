@@ -134,8 +134,11 @@ app.get('/aicte/:email', (req, res) => {
 });
 
 
-app.get('/translation/:email', (req, res) => {
+app.get('/translation/:email/:course/:language', (req, res) => {
     const email = req.params.email;
+
+    const course = req.params.course;
+    const language = req.params.language;
     let transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
@@ -152,13 +155,17 @@ app.get('/translation/:email', (req, res) => {
     transporter.sendMail(mailOption, (err, data) => {
         if (err) throw res.send(err);
         console.log('Email Sent!');
-        res.redirect('http://free.aicte-india.org/translation/register.php?register=success');
+        res.redirect(`http://free.aicte-india.org/translation/register.php?register=success&course=${course}&language=${language}`);
     })
 });
 
 
 app.get('/mtranslation/:email', (req, res) => {
     const email = req.params.email;
+
+    const course = req.params.course;
+    const language = req.params.language;
+
     let transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
@@ -175,7 +182,7 @@ app.get('/mtranslation/:email', (req, res) => {
     transporter.sendMail(mailOption, (err, data) => {
         if (err) throw res.send(err);
         console.log('Email Sent!');
-        res.redirect('http://free.aicte-india.org/translation/mregister.php?register=success');
+        res.redirect(`http://free.aicte-india.org/translation/mregister.php?register=success&course=${course}&language=${language}`);
     })
 });
 
