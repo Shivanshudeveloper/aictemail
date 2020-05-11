@@ -160,7 +160,7 @@ app.get('/translation/:email/:course/:language', (req, res) => {
 });
 
 
-app.get('/mtranslation/:email', (req, res) => {
+app.get('/mtranslation/:email/:course/:language', (req, res) => {
     const email = req.params.email;
 
     const course = req.params.course;
