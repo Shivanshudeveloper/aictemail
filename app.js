@@ -159,7 +159,7 @@ app.get('/translation/:email/:course/:language', (req, res) => {
     transporter.sendMail(mailOption, (err, data) => {
         if (err) throw res.send(err);
         console.log('Email Sent!');
-        res.redirect(`http://translation.aicte-india.org/register.php?register=success&course=${course}&language=${language}&email=${email}`);
+        res.redirect(`http://translation.aicte-india.org/FAQ.php?register=success&course=${course}&language=${language}&email=${email}`);
     })
 });
 
@@ -190,7 +190,7 @@ app.get('/mtranslation/:email/:course/:language', (req, res) => {
     transporter.sendMail(mailOption, (err, data) => {
         if (err) throw res.send(err);
         console.log('Email Sent!');
-        res.redirect(`http://translation.aicte-india.org/mregister.php?register=success&course=${course}&language=${language}&email=${email}`);
+        res.redirect(`http://translation.aicte-india.org/FAQ.php?register=success&course=${course}&language=${language}&email=${email}`);
     })
 });
 
