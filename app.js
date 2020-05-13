@@ -142,8 +142,8 @@ app.get('/translation/:email/:course/:language', (req, res) => {
     let transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: 'aicteupdate@gmail.com',
-            pass: 'aicte@1234'
+            user: 'translationaicte@gmail.com',
+            pass: 'Ironman1.'
         }
     });
     let mailOption = {
@@ -173,8 +173,8 @@ app.get('/mtranslation/:email/:course/:language', (req, res) => {
     let transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: 'aicteupdate@gmail.com',
-            pass: 'aicte@1234'
+            user: 'translationaicte@gmail.com',
+            pass: 'Ironman1'
         }
     });
     let mailOption = {
