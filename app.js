@@ -139,28 +139,29 @@ app.get('/translation/:email/:course/:language', (req, res) => {
 
     const course = req.params.course;
     const language = req.params.language;
-    let transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-            user: 'translationaicte@gmail.com',
-            pass: 'Ironman1.'
-        }
-    });
-    let mailOption = {
-        from: 'aicteupdate@gmail.com',
-        to: email,
-        subject: `Congratulations Account Has Been Successfully Created`,
-        html: `Account for ${email} has been successfully Registered. 
-        <br />
-        Willingness from ${email} for the course ${course} for translating in ${language} language has been successfully registered.
-        More information can be seen in the <a href="http://translation.aicte-india.org/FAQ.php">FAQs</a>. Click here to see more information
-        `
-    };
-    transporter.sendMail(mailOption, (err, data) => {
-        if (err) throw res.send(err);
-        console.log('Email Sent!');
-        res.redirect(`http://translation.aicte-india.org/FAQ.php?register=success&course=${course}&language=${language}&email=${email}`);
-    })
+    res.redirect(`http://translation.aicte-india.org/FAQ.php?register=success&course=${course}&language=${language}&email=${email}`);
+    // let transporter = nodemailer.createTransport({
+    //     service: 'gmail',
+    //     auth: {
+    //         user: 'translationaicte@gmail.com',
+    //         pass: 'Ironman1.'
+    //     }
+    // });
+    // let mailOption = {
+    //     from: 'aicteupdate@gmail.com',
+    //     to: email,
+    //     subject: `Congratulations Account Has Been Successfully Created`,
+    //     html: `Account for ${email} has been successfully Registered. 
+    //     <br />
+    //     Willingness from ${email} for the course ${course} for translating in ${language} language has been successfully registered.
+    //     More information can be seen in the <a href="http://translation.aicte-india.org/FAQ.php">FAQs</a>. Click here to see more information
+    //     `
+    // };
+    // transporter.sendMail(mailOption, (err, data) => {
+    //     if (err) throw res.send(err);
+    //     console.log('Email Sent!');
+    //     res.redirect(`http://translation.aicte-india.org/FAQ.php?register=success&course=${course}&language=${language}&email=${email}`);
+    // })
 });
 
 
@@ -169,29 +170,29 @@ app.get('/mtranslation/:email/:course/:language', (req, res) => {
 
     const course = req.params.course;
     const language = req.params.language;
-
-    let transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-            user: 'translationaicte@gmail.com',
-            pass: 'Ironman1'
-        }
-    });
-    let mailOption = {
-        from: 'aicteupdate@gmail.com',
-        to: email,
-        subject: `Congratulations Account Has Been Successfully Created`,
-        html: `Account for ${email} has been successfully Registered. 
-        <br />
-        Willingness from ${email} for the course ${course} for translating in ${language} language has been successfully registered.
-        More information can be seen in the <a href="http://translation.aicte-india.org/FAQ.php">FAQs</a>. Click here to see more information
-        `
-    };
-    transporter.sendMail(mailOption, (err, data) => {
-        if (err) throw res.send(err);
-        console.log('Email Sent!');
-        res.redirect(`http://translation.aicte-india.org/FAQ.php?register=success&course=${course}&language=${language}&email=${email}`);
-    })
+    res.redirect(`http://translation.aicte-india.org/FAQ.php?register=success&course=${course}&language=${language}&email=${email}`);
+    // let transporter = nodemailer.createTransport({
+    //     service: 'gmail',
+    //     auth: {
+    //         user: 'translationaicte@gmail.com',
+    //         pass: 'Ironman1'
+    //     }
+    // });
+    // let mailOption = {
+    //     from: 'aicteupdate@gmail.com',
+    //     to: email,
+    //     subject: `Congratulations Account Has Been Successfully Created`,
+    //     html: `Account for ${email} has been successfully Registered. 
+    //     <br />
+    //     Willingness from ${email} for the course ${course} for translating in ${language} language has been successfully registered.
+    //     More information can be seen in the <a href="http://translation.aicte-india.org/FAQ.php">FAQs</a>. Click here to see more information
+    //     `
+    // };
+    // transporter.sendMail(mailOption, (err, data) => {
+    //     if (err) throw res.send(err);
+    //     console.log('Email Sent!');
+    //     res.redirect(`http://translation.aicte-india.org/FAQ.php?register=success&course=${course}&language=${language}&email=${email}`);
+    // })
 });
 
 
