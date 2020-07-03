@@ -239,6 +239,45 @@ app.get('/iksexpert/:email/:fullname', (req, res) => {
 });
 
 
+app.get('/researcher/:first/:last/:email/:phone/:description/:ofemail', (req, res) => {
+    const first = req.params.first;
+    const last = req.params.last;
+    const email = req.params.email;
+    const phone = req.params.phone;
+    const ofemail = req.params.ofemail;
+    const description = req.params.description;
+
+
+
+    let transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'iksaicte@gmail.com',
+            pass: 'aicte1234'
+        }
+    });
+    let mailOption = {
+        from: 'iksaicte@gmail.com',
+        to: ofemail,
+        subject: `Someone wants to contact you`,
+        text: `
+            Dear Shri/Smt.
+            Full Name: ${first} ${last}
+            Phone Number: ${phone}
+            Email: ${email}
+            Content of Body: ${description}
+            Regards,
+            LocalVocal Team
+        `
+    };
+    transporter.sendMail(mailOption, (err, data) => {
+        if (err) throw res.send(err);
+        console.log('Email Sent!');
+        res.send("D");
+    })
+});
+
+
 
 // Getting PORT set
 const PORT = process.env.PORT || 5000;
